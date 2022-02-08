@@ -18,7 +18,7 @@ import HeaderIconButton from '../components/navigation/HeaderIconButton';
 import Onboarding from '../screens/onboarding/HaarshapeOnboarding';
 
 // import Welcome screen
-import Welcome from '../screens/welcome/WelcomeB';
+import Welcome from '../screens/welcome/HaarshapeWelcome';
 
 // import SignUp screen
 import SignUp from '../screens/signup/SignUpB';
