@@ -1,20 +1,28 @@
-import { StatusBar } from 'expo-status-bar';
-import { StyleSheet, Text, View } from 'react-native';
+/**
+ * Food Delivery - React Native Template
+ *
+ * @format
+ * @flow
+ */
 
+// import dependencies
+import 'react-native-gesture-handler';
+import React from 'react';
+import {SafeAreaProvider} from 'react-native-safe-area-context';
+import {enableScreens} from 'react-native-screens';
+
+enableScreens();
+
+// import MainNavigatorA or MainNavigatorB to preview design differnces
+import MainNavigator from './src/navigation/HaarshapeMainNavigator';
+
+// APP
 export default function App() {
   return (
-    <View style={styles.container}>
-      <Text>Open up App.js to start working on your app!</Text>
-      <StatusBar style="auto" />
-    </View>
+    <SafeAreaProvider>
+      <MainNavigator />
+    </SafeAreaProvider>
   );
 }
 
-const styles = StyleSheet.create({
-  container: {
-    flex: 1,
-    backgroundColor: '#fff',
-    alignItems: 'center',
-    justifyContent: 'center',
-  },
-});
+ App;
