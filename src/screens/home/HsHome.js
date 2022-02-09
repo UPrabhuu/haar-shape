@@ -25,7 +25,7 @@ import getImgSource from '../../utils/getImgSource.js';
 // import components
 import Divider from '../../components/divider/Divider';
 import LinkButton from '../../components/buttons/LinkButton';
-import ProductCard from '../../components/cards/ProductCard';
+import ProductCard from '../../components/cards/HsProductCard';
 import {Heading6} from '../../components/text/CustomText';
 
 // import colors

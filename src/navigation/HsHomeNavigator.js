@@ -17,16 +17,13 @@ import TabBadgeIcon from '../components/navigation/TabBadgeIcon';
 import Home from '../screens/home/HsHome';
 
 // import Search screen
-import Search from '../screens/search/SearchB';
-
-// import Favorites screen
-import Favorites from '../screens/favorites/FavoritesB';
+import Search from '../screens/search/HsSearch';
 
 // import Cart screen
-import Cart from '../screens/cart/CartB';
+import Cart from '../screens/cart/HsCart';
 
 // import Settings screen
-import Settings from '../screens/settings/SettingsB';
+import Settings from '../screens/settings/HsSettings';
 
 // import colors
 import Colors from '../theme/colors';
