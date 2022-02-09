@@ -65,7 +65,7 @@ const styles = StyleSheet.create({
 });
 
 // WelcomeB Screen
-export default class WelcomeB extends Component {
+export default class HsWelcome extends Component {
   constructor(props) {
     super(props);
     this.state = {};
@@ -93,7 +93,7 @@ export default class WelcomeB extends Component {
 
           <View style={styles.buttonsGroup}>
             <ContainedButton
-              onPress={this.navigateTo('SignUp')}
+              onPress={this.navigateTo('SignIn')}
               color={Colors.white}
               title={'Sign in'.toUpperCase()}
               titleColor={Colors.primaryColor}
@@ -102,7 +102,7 @@ export default class WelcomeB extends Component {
             <View style={styles.vspace16} />
 
             <OutlinedButton
-              onPress={this.navigateTo('SignIn')}
+              onPress={this.navigateTo('SignUp')}
               title={'sign up'.toUpperCase()}
               titleColor={Colors.white}
               rippleColor={'rgba(255, 255, 255, 0.32)'}

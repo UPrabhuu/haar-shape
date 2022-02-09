@@ -18,25 +18,25 @@ import HeaderIconButton from '../components/navigation/HeaderIconButton';
 import Onboarding from '../screens/onboarding/HaarshapeOnboarding';
 
 // import Welcome screen
-import Welcome from '../screens/welcome/HaarshapeWelcome';
+import Welcome from '../screens/welcome/HsWelcome';
 
 // import SignUp screen
-import SignUp from '../screens/signup/SignUpB';
+import SignUp from '../screens/signup/HsSignUp';
 
 // import Verification screen
 import Verification from '../screens/verification/VerificationB';
 
 // import SignIn screen
-import SignIn from '../screens/signin/SignInB';
+import SignIn from '../screens/signin/HsSignIn';
 
 // import ForgotPassword screen
-import ForgotPassword from '../screens/forgotpassword/ForgotPasswordB';
+import ForgotPassword from '../screens/forgotpassword/HsForgotPassword';
 
 // import TermsConditions screen
-import TermsConditions from '../screens/terms/TermsConditionsB';
+import TermsConditions from '../screens/terms/HsTermsConditions';
 
 // import HomeNavigator
-import HomeNavigator from './HomeNavigatorB';
+import HomeNavigator from './HsHomeNavigator';
 
 // import Product screen
 import Product from '../screens/product/ProductB';
@@ -91,7 +91,7 @@ const SAVE_ICON = Platform.OS === 'ios' ? 'ios-checkmark' : 'md-checkmark';
 const Stack = createStackNavigator();
 
 // MainNavigatorA
-function HaarshapeMainNavigator() {
+function HsMainNavigator() {
   return (
     <View
       style={[
@@ -363,4 +363,4 @@ function HaarshapeMainNavigator() {
   );
 }
 
-export default HaarshapeMainNavigator;
+export default HsMainNavigator;

@@ -14,7 +14,7 @@ import {enableScreens} from 'react-native-screens';
 enableScreens();
 
 // import MainNavigatorA or MainNavigatorB to preview design differnces
-import MainNavigator from './src/navigation/HaarshapeMainNavigator';
+import MainNavigator from './src/navigation/HsMainNavigator';
 
 // APP
 export default function App() {
