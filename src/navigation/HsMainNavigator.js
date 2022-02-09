@@ -96,8 +96,7 @@ function HsMainNavigator() {
     <View
       style={[
         {flex: 1},
-        // FIX ME: react navigation white glitch (flicker), remove this backgroundColor
-        Platform.OS === 'android' && {backgroundColor: Colors.primaryColor},
+        
       ]}>
       <NavigationContainer>
         <Stack.Navigator
@@ -105,8 +104,7 @@ function HsMainNavigator() {
             cardOverlayEnabled: false,
             cardShadowEnabled: false,
             cardStyle: {
-              // FIX ME: added to prevent some minor react navigation border bottom glitches
-              backgroundColor: Colors.primaryColor,
+              
               opacity: 1,
               shadowOpacity: 0,
             },
