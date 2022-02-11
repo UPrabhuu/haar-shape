@@ -19,6 +19,7 @@ import {
   View,
 } from 'react-native';
 import Swiper from 'react-native-swiper';
+import Color from 'color';
 
 // import utils
 import getImgSource from '../../utils/getImgSource.js';
@@ -32,6 +33,7 @@ import TouchableItem from '../../components/TouchableItem';
 
 // import colors
 import Colors from '../../theme/colors';
+
 
 // ProductA Config
 const isRTL = I18nManager.isRTL;
@@ -162,6 +164,47 @@ const styles = StyleSheet.create({
     lineHeight: 18,
     color: Colors.onPrimaryColor,
   },
+  caption: {
+    padding: 16,
+    fontWeight: '700',
+    textAlign: 'left',
+  },
+  dishContainer: {
+    flexDirection: 'row',
+    justifyContent: 'space-between',
+    alignItems: 'center',
+    padding: 16,
+    height: 56,
+  },
+  indicator: {
+    flexDirection: 'row',
+    justifyContent: 'flex-start',
+    alignItems: 'center',
+  },
+  emptyIndicator: {
+    marginRight: 24,
+    width: 20,
+    height: 20,
+    borderRadius: 10,
+    borderWidth: 2,
+    borderColor: Color(Colors.black).alpha(0.4),
+    backgroundColor: Colors.background,
+  },
+  filledIndicator: {
+    marginRight: 24,
+    width: 20,
+    height: 20,
+    borderRadius: 10,
+    borderWidth: 2,
+    backgroundColor: Colors.primaryColor,
+  },
+  dishName: {
+    top: -1,
+    lineHeight: 22,
+  },
+  dishPrice: {
+    color: Colors.secondaryText,
+  },
 });
 
 // ProductA
@@ -175,15 +218,22 @@ export default class HsProduct extends Component {
           require('../../assets/img/pizza_1.jpg'),
           require('../../assets/img/pizza_2.jpg'),
         ],
-        name: 'Pizza Carbonara',
+        name: 'Pandiyan Salon',
         description:
-          'Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt.',
+          'Q-90, 4th Main Rd, Block Q, Anna Nagar, Chennai, Tamil Nadu 600040, India',
         price: 10.9,
         quantity: 1,
         servingSize: 1,
         sideDish: 20,
         total: 10.9,
       },
+      extras: [
+        {name: 'Hair cut ', picked: false, price: 50.0},
+        {name: 'Hair Dye', picked: false, price: 100.0},
+        {name: 'Massage', picked: false, price: 500.0},
+        {name: 'coloring', picked: false, price: 100.0},
+        {name: 'Hair cut', picked: false, price: 100.0},
+      ],
       favorite: false,
     };
   }
@@ -256,9 +306,29 @@ export default class HsProduct extends Component {
       product,
     });
   };
+  setExtraDish = (item) => () => {
+    const {product, extras} = this.state;
+    const index = extras.indexOf(item);
+    const picked = extras[index].picked;
+
+    if (picked) {
+      product.singleProductPrice -= item.price;
+      product.total -= product.quantity * item.price;
+    } else {
+      product.singleProductPrice += item.price;
+      product.total += product.quantity * item.price;
+    }
+
+    extras[index].picked = !picked;
+
+    this.setState({
+      product,
+      extras: [...extras],
+    });
+  };
 
   render() {
-    const {product, favorite} = this.state;
+    const {product, favorite,extras} = this.state;
     const {
       images,
       price,
@@ -275,8 +345,6 @@ export default class HsProduct extends Component {
           backgroundColor={Colors.statusBarColor}
           barStyle="dark-content"
         />
-
-        <ScrollView>
           <View style={styles.swiperContainer}>
             <Swiper
               loop={false}
@@ -329,75 +397,48 @@ export default class HsProduct extends Component {
           <View style={styles.descriptionContainer}>
             <View style={styles.productTitleContainer}>
               <Heading5 style={styles.productTitle}>{product.name}</Heading5>
-              <Text style={styles.priceText}>{`$ ${(
-                price * servingSize
-              ).toFixed(2)}`}</Text>
+             
             </View>
           </View>
 
           <View style={styles.descriptionContainer}>
             <SmallText style={styles.shortDescription}>{description}</SmallText>
           </View>
-
-          <View style={styles.pickerGroup}>
-            <View style={styles.pickerContainer}>
-              <Caption style={styles.caption}>SIZE</Caption>
-              <SizePicker
-                title="Small"
-                onPress={this.setServingSize(1)}
-                picked={servingSize === 1}
-              />
-              <SizePicker
-                title="Medium"
-                onPress={this.setServingSize(1.5)}
-                picked={servingSize === 1.5}
-              />
-              <SizePicker
-                title="Large"
-                onPress={this.setServingSize(2)}
-                picked={servingSize === 2}
-              />
-            </View>
-
-            <View style={styles.pickerContainer}>
-              <Caption style={styles.caption}>SIDE DISH</Caption>
-              <SizePicker
-                title="Mayonaise"
-                onPress={this.setSideDish(20)}
-                picked={sideDish === 20}
-              />
-              <SizePicker
-                title="Cheese"
-                onPress={this.setSideDish(30)}
-                picked={sideDish === 30}
-              />
-            </View>
+          <View>
+              <Caption style={styles.caption}>CHOOSE THE SERVICES</Caption>
           </View>
+          <ScrollView>
+          <View>
+              {extras.map((item, index) => (
+                <TouchableItem
+                  key={index.toString()}
+                  onPress={this.setExtraDish(item)}
+                  useForeground>
+                  <View style={styles.dishContainer}>
+                    <View style={styles.indicator}>
+                      <View>
+                        {item.picked ? (
+                          <View style={styles.filledIndicator} />
+                        ) : (
+                          <View style={styles.emptyIndicator} />
+                        )}
+                      </View>
+
+                      <Text style={styles.dishName}>{item.name}</Text>
+                    </View>
+
+                    <Text style={styles.dishPrice}>
+                      {item.price.toFixed(2)}
+                    </Text>
+                  </View>
+                </TouchableItem>
+              ))}
+            </View>
         </ScrollView>
 
         <View style={styles.amountContainer}>
           <View style={styles.amountButtonsContainer}>
-            <TouchableItem onPress={this.onPressDecreaseAmount} borderless>
-              <View style={styles.iconContainer}>
-                <Icon
-                  name={MINUS_ICON}
-                  size={20}
-                  color={Colors.onPrimaryColor}
-                />
-              </View>
-            </TouchableItem>
-
-            <Text style={styles.quantity}>{quantity}</Text>
-
-            <TouchableItem onPress={this.onPressIncreaseAmount} borderless>
-              <View style={styles.iconContainer}>
-                <Icon
-                  name={PLUS_ICON}
-                  size={20}
-                  color={Colors.onPrimaryColor}
-                />
-              </View>
-            </TouchableItem>
+            
           </View>
         </View>
 
@@ -405,7 +446,7 @@ export default class HsProduct extends Component {
           <Button onPress={this.goBack} title={'Add to Cart'.toUpperCase()} />
           <View style={styles.buttonPriceContainer}>
             <Text style={styles.buttonPriceText}>
-              {`$ ${total.toFixed(2)}`}
+              {`₹ ${total.toFixed(2)}`}
             </Text>
           </View>
         </View>
