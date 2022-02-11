@@ -39,7 +39,7 @@ import TermsConditions from '../screens/terms/HsTermsConditions';
 import HomeNavigator from './HsHomeNavigator';
 
 // import Product screen
-import Product from '../screens/product/ProductB';
+import Product from '../screens/product/HsProduct';
 
 // import Categories screen
 import Category from '../screens/categories/CategoryB';
@@ -67,7 +67,7 @@ import EditProfile from '../screens/profile/EditProfileB';
 import Notifications from '../screens/notifications/NotificationsB';
 
 // import DeliveryAddress screen
-import DeliveryAddress from '../screens/address/DeliveryAddressB';
+import Address from '../screens/address/HsAddress';
 
 // import AddAddress screen
 import AddAddress from '../screens/address/AddAddressB';
@@ -76,10 +76,10 @@ import AddAddress from '../screens/address/AddAddressB';
 import EditAddress from '../screens/address/EditAddressB';
 
 // import Orders screen
-import Orders from '../screens/orders/OrdersB';
+import Orders from '../screens/orders/HsOrders';
 
 // import AboutUs screen
-import AboutUs from '../screens/about/AboutUsB';
+import AboutUs from '../screens/about/HsAboutUs';
 
 // import colors
 import Colors from '../theme/colors';
@@ -272,13 +272,13 @@ function HsMainNavigator() {
             }}
           />
           <Stack.Screen
-            name="DeliveryAddress"
-            component={DeliveryAddress}
+            name="Address"
+            component={Address}
             options={({navigation}) => ({
               headerStyle: {
                 backgroundColor: Colors.primaryColor,
               },
-              title: 'Delivery Address',
+              title: 'Address',
               headerRight: () => (
                 <HeaderIconButton
                   onPress={() => navigation.goBack()}

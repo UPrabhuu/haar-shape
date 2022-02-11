@@ -6,7 +6,7 @@
  */
 
 // import node modules
-import React, {Component} from 'react';
+import React, {Component, Fragment} from 'react';
 import {
   FlatList,
   SafeAreaView,
@@ -16,17 +16,14 @@ import {
 } from 'react-native';
 
 // import components
-import OrderItem from '../../components/cards/OrderItemA';
+import OrderItem from '../../components/cards/HsOrderItem';
 
 // import colors
 import Colors from '../../theme/colors';
 
-// OrdersA Styles
+// OrdersB Styles
 const styles = StyleSheet.create({
-  screenContainer: {
-    flex: 1,
-    backgroundColor: '#ffffff',
-  },
+  topArea: {flex: 0, backgroundColor: Colors.primaryColor},
   container: {
     flex: 1,
     backgroundColor: '#efefef',
@@ -36,8 +33,8 @@ const styles = StyleSheet.create({
   },
 });
 
-// OrdersA
-export default class OrdersA extends Component {
+// OrdersB
+export default class HsOrders extends Component {
   constructor(props) {
     super(props);
 
@@ -136,21 +133,24 @@ export default class OrdersA extends Component {
     const {orders} = this.state;
 
     return (
-      <SafeAreaView style={styles.screenContainer}>
-        <StatusBar
-          backgroundColor={Colors.statusBarColor}
-          barStyle="dark-content"
-        />
-
-        <View style={styles.container}>
-          <FlatList
-            data={orders}
-            renderItem={this.renderItem}
-            keyExtractor={this.keyExtractor}
-            contentContainerStyle={styles.productsContainer}
+      <Fragment>
+        <SafeAreaView style={styles.topArea} />
+        <SafeAreaView style={styles.container}>
+          <StatusBar
+            backgroundColor={Colors.primaryColor}
+            barStyle="light-content"
           />
-        </View>
-      </SafeAreaView>
+
+          <View style={styles.container}>
+            <FlatList
+              data={orders}
+              renderItem={this.renderItem}
+              keyExtractor={this.keyExtractor}
+              contentContainerStyle={styles.productsContainer}
+            />
+          </View>
+        </SafeAreaView>
+      </Fragment>
     );
   }
 }

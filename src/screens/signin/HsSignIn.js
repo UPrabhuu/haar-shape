@@ -234,8 +234,9 @@ export default class HsSignIn extends Component {
                 <View style={styles.buttonContainer}>
                   <ContainedButton
                     onPress={this.signIn}
-                    color={Colors.accentColor}
+                    color={Colors.white}
                     title={'Sign in'.toUpperCase()}
+                    titleColor={Colors.primaryColor}
                   />
                 </View>
 

@@ -265,8 +265,9 @@ export default class HsSignUp extends Component {
                 <View style={styles.buttonContainer}>
                   <ContainedButton
                     onPress={this.createAccount}
-                    color={Colors.accentColor}
+                    color={Colors.white}
                     title={'Create Account'.toUpperCase()}
+                    titleColor={Colors.primaryColor}
                   />
                 </View>
 

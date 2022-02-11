@@ -104,60 +104,48 @@ export default class HomeB extends Component {
         {
           key: 1,
           imageUri: require('../../assets/img/pizza_3.jpg'),
-          name: 'Pizza',
+          name: 'Mens salon',
         },
         {
           key: 2,
           imageUri: require('../../assets/img/meat_1.jpg'),
-          name: 'Grill',
+          name: 'Beauty Parlor',
         },
         {
           key: 3,
           imageUri: require('../../assets/img/spaghetti_2.jpg'),
-          name: 'Pasta',
+          name: 'Unisex Salon',
         },
         {
           key: 4,
-          imageUri: require('../../assets/img/soup_1.jpg'),
-          name: 'Soups',
+          imageUri: require('../../assets/img/spaghetti_2.jpg'),
+          name: 'Massage Center',
         },
-        {
-          key: 5,
-          imageUri: require('../../assets/img/salad_1.jpg'),
-          name: 'Salads',
-        },
+        
       ],
       products: [
         {
           imageUri: require('../../assets/img/pizza_1.jpg'),
-          name: 'Pizza Margarita 35cm',
-          price: 10.99,
+          name: 'Pandian Salon',
           description:
-            'Made with San Marzano tomatoes, mozzarella cheese, fresh basil, salt and extra-virgin olive oil',
-          quantity: 0,
+            'Q-90, 4th Main Rd, Block Q, Anna Nagar, Chennai, Tamil Nadu 600040, India',
         },
         {
           imageUri: require('../../assets/img/sandwich_2.jpg'),
-          name: 'Subway Sandwich',
-          price: 8.49,
+          name: 'Envi Salon and Spa',
           description:
-            'Ham sandwich with two servings of crisp veggies on freshly baked bread for under 400 calories',
-          quantity: 0,
+            'G40A, Lower Ground Floor, Phoenix Marketcity Mall, Velachery Bypass Rd, Indira Gandhi Nagar, Velachery, Chennai',
         },
         {
           imageUri: require('../../assets/img/cake_1.jpg'),
-          name: 'Chocolate Cake',
-          price: 4.99,
-          description: 'Cake flavored with melted chocolate, cocoa powder',
-          quantity: 0,
+          name: '24K LUXURY SALON',
+          description: '32, Ram Chambers, 2nd Floor, CASA Major Rd, Egmore, Chennai, Tamil Nadu 600008, India',
         },
         {
           imageUri: require('../../assets/img/soup_1.jpg'),
-          name: 'Roasted Carrot Soup',
-          price: 11.99,
+          name: 'LUXE SIGNATURE SALON',
           description:
-            'Plain greek yogurt, olive oil, garlic, fresh basil, whole peeled tomatoes',
-          quantity: 0,
+            '9,Gandhi street, Chitlapakkam Main Rd, next to Loyola school, Chennai, Tamil Nadu 600064, India',
         },
       ],
     };

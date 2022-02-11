@@ -35,26 +35,27 @@ import TouchableItem from '../../components/TouchableItem';
 // import colors
 import Colors from '../../theme/colors';
 
-// AboutUsA Config
+// AboutUsB Config
 const isRTL = I18nManager.isRTL;
 const FACEBOOK_ICON = 'facebook';
 const INSTAGRAM_ICON = 'instagram';
-const YELP_ICON = 'yelp';
+const YELP_ICON = 'twitter';
 const OVERLAY_COLOR = 'rgba(185, 0, 57, 0.4)';
 const AVATAR_SIZE = 54;
 
-// AboutUsA Styles
+// AboutUsB Styles
 const styles = StyleSheet.create({
   pb6: {paddingBottom: 6},
   pl8: {paddingLeft: 8},
   screenContainer: {
     flex: 1,
-    backgroundColor: Colors.background,
+    backgroundColor: Colors.primaryColor,
   },
   content: {
     flex: 1,
     justifyContent: 'space-between',
     alignItems: 'center',
+    backgroundColor: Colors.background,
   },
   row: {
     flexDirection: 'row',
@@ -151,8 +152,8 @@ const styles = StyleSheet.create({
   },
 });
 
-// AboutUsA
-export default class AboutUsA extends Component {
+// AboutUsB
+export default class HsAboutUs extends Component {
   constructor(props) {
     super(props);
     this.state = {};
@@ -171,8 +172,8 @@ export default class AboutUsA extends Component {
     return (
       <SafeAreaView style={styles.screenContainer}>
         <StatusBar
-          backgroundColor={Colors.statusBarColor}
-          barStyle="dark-content"
+          backgroundColor={Colors.primaryColor}
+          barStyle="light-content"
         />
 
         <View style={styles.content}>
@@ -185,7 +186,8 @@ export default class AboutUsA extends Component {
               dotStyle={styles.dot}>
               <ImageBackground
                 source={require('../../assets/img/about_1.jpg')}
-                style={styles.bgImg}>
+                style={styles.bgImg}
+                imageStyle={styles.opacity}>
                 <GradientContainer
                   colors={
                     isRTL
@@ -223,7 +225,8 @@ export default class AboutUsA extends Component {
 
               <ImageBackground
                 source={require('../../assets/img/about_2.jpg')}
-                style={styles.bgImg}>
+                style={styles.bgImg}
+                imageStyle={styles.opacity}>
                 <GradientContainer
                   colors={
                     isRTL
@@ -245,7 +248,8 @@ export default class AboutUsA extends Component {
 
               <ImageBackground
                 source={require('../../assets/img/about_3.jpg')}
-                style={styles.bgImg}>
+                style={styles.bgImg}
+                imageStyle={styles.opacity}>
                 <GradientContainer
                   colors={
                     isRTL
@@ -326,7 +330,7 @@ export default class AboutUsA extends Component {
         <View style={styles.footer}>
           <TouchableItem>
             <View style={styles.footerButton}>
-              <Text style={styles.footerButtonText}>www.fooddelivery.com</Text>
+              <Text style={styles.footerButtonText}>www.haarshape.com</Text>
             </View>
           </TouchableItem>
         </View>

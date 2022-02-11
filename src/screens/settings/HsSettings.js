@@ -44,7 +44,7 @@ const ORDERS_ICON = IOS ? 'ios-list' : 'md-list';
 
 const ABOUT_ICON = IOS ? 'ios-finger-print' : 'md-finger-print';
 const UPDATE_ICON = IOS ? 'ios-cloud-download' : 'md-cloud-download';
-const TERMS_ICON = IOS ? 'ios-document-text' : 'md-paper';
+const TERMS_ICON = IOS ? 'ios-document-text' : 'md-document';
 
 const ADD_ICON = IOS ? 'ios-add-circle-outline' : 'md-add-circle-outline';
 const LOGOUT_ICON = IOS ? 'ios-exit' : 'md-exit';
@@ -268,7 +268,7 @@ export default class SettingsB extends Component {
 
           <SectionHeader title="Address" />
           <Setting
-            onPress={this.navigateTo('DeliveryAddress')}
+            onPress={this.navigateTo('Address')}
             icon={ADDRESS_ICON}
             setting="Set Delivery Address"
           />
@@ -293,8 +293,6 @@ export default class SettingsB extends Component {
             icon={ABOUT_ICON}
             setting="Who We Are"
           />
-
-          <Setting icon={UPDATE_ICON} setting="App Updates" />
 
           <Setting
             onPress={this.navigateTo('TermsConditions')}
